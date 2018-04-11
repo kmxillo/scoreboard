@@ -41,6 +41,12 @@ class DefaultCommandInterpreterTest {
 	}
 
 	@Test
+	void interpretScore3() {
+		assertEquals(Action.SCORE_3, interpreter.parse("3"));
+		assertEquals(Action.SCORE_3, interpreter.parse("score 3"));
+	}
+
+	@Test
 	void interpretHelp() {
 		assertEquals(interpreter.parse("?"), Action.HELP);
 		assertEquals(interpreter.parse("h"), Action.HELP);
