@@ -15,8 +15,4 @@ Java JDK 8+
 3. Extract archive and run script (run-app.bat / run-app.sh) to start the application.
 
 
-### Architecture Overview
-
-![Console Architecture](console.png)
-
-![Core Architecture](core.png)
+### [Architecture](./ARCHITECTURE.md) 
