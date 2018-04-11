@@ -92,6 +92,13 @@ class ScoreboardConsoleAppTest {
 	}
 
 	@Test
+	void actionScore3CallsScorePoints3OnPresenter() {
+		when(interpreter.parse(anyString())).thenReturn(Action.SCORE_3, Action.QUIT);
+		app.run(presenter, interpreter);
+		verify(presenter).score(Points.Three);
+	}
+
+	@Test
 	void actionHelpDisplaysListOfCommands() {
 		when(interpreter.parse(anyString())).thenReturn(Action.HELP, Action.QUIT);
 		app.run(presenter, interpreter);
