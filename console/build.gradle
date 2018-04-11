@@ -15,3 +15,21 @@ dependencies {
 	compile(project(":core"))
 	compile("net.sf.jopt-simple:jopt-simple:5.0.4")
 }
+
+task zipUnix(type: Zip) {
+	from fileTree(".").include("**/run-app.sh").files, fileTree(".").include("**/scoreboard-console.jar").files
+	include "*"
+	archiveName "unix.zip"
+	destinationDir(file("../docs/"))
+}
+
+task zipWindows(type: Zip) {
+	from fileTree(".").include("**/run-app.bat").files, fileTree(".").include("**/scoreboard-console.jar").files
+	include "*"
+	archiveName "windows.zip"
+	destinationDir(file("../docs/"))
+}
+
+zipUnix.dependsOn(zipWindows)
+
+build.finalizedBy(zipUnix)
