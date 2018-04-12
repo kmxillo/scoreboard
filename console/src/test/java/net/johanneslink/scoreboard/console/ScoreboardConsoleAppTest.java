@@ -19,6 +19,7 @@ class ScoreboardConsoleAppTest {
 		app = new ScoreboardConsoleApp(console);
 		presenter = mock(ScoreboardPresenter.class);
 		interpreter = mock(CommandInterpreter.class);
+		when(interpreter.getRegisteredCommands()).thenReturn(new DefaultCommandInterpreter().getRegisteredCommands());
 
 		// Default behavior of console and interpreter:
 		when(console.readLine()).thenReturn("any input");

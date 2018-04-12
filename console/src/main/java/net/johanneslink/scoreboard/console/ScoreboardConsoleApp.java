@@ -6,6 +6,7 @@ public class ScoreboardConsoleApp implements ScoreboardView {
 
 	private Console console;
 	private ScoreboardPresenter presenter;
+	private CommandInterpreter interpreter;
 
 	ScoreboardConsoleApp(Console console) {
 		this.console = console;
@@ -14,6 +15,7 @@ public class ScoreboardConsoleApp implements ScoreboardView {
 	void run(ScoreboardPresenter presenter, CommandInterpreter interpreter) {
 		presenter.register(this);
 		this.presenter = presenter;
+		this.interpreter = interpreter;
 		loop(interpreter);
 	}
 
@@ -53,13 +55,9 @@ public class ScoreboardConsoleApp implements ScoreboardView {
 
 	private void printHelpString() {
 		console.println("Possible commands:");
-		console.println("Select [A] - Select team A for scoring");
-		console.println("Select [B] - Select team B for scoring");
-		console.println("Score [1] - Score 1 point for selected team");
-		console.println("Score [2] - Score 2 points for selected team");
-		console.println("Score [3] - Score 3 points for selected team");
-		console.println("[Q]uit - Terminate the Scoreboard app");
-		console.println("[?|H]elp - Print this message");
+		for (Command command: interpreter.getRegisteredCommands()){
+			console.println(command.getHelpText());
+		}
 	}
 
 	@Override
