@@ -19,6 +19,10 @@ Java JDK 8+
 5. Run script (run-app.bat / run-app.sh) to start the application.
 
 
+### Build status
+![Build status](https://travis-ci.org/jlink-workshop/scoreboard.svg?branch=master)
+
+
 ### [Architecture](./ARCHITECTURE.md)
 
 See details by clicking headline 
