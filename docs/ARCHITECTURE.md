@@ -1,8 +1,3 @@
 ## Architecture Overview
 
-### Console Architecture
-![Console Architecture](console.png)
-
-
-### Core Architecture
-![Core Architecture](core.png)
+![System architecture](architecture.png)
