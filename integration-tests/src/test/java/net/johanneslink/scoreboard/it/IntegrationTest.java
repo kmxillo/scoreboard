@@ -35,6 +35,7 @@ class IntegrationTest {
 
 	@Test
 	void startingConsoleAppDisplaysInitialScore() throws Exception {
+		// TODO: Use setConsoleInput()
 		String inputText = String.format("Q%n");
 		stdin = new ByteArrayInputStream(inputText.getBytes());
 		System.setIn(stdin);
