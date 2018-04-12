@@ -26,3 +26,21 @@ Java JDK 8+
 ### [Architecture](./ARCHITECTURE.md)
 
 See details by clicking headline 
+
+### Ticket evals
+
+#### #15 ASCII-Art for score presentation (console-only)
+
+Current eval result was rejected by PO due to bad readability.
+
+Eval result:
+```
+  ##    ##    ##           ##   ###   ###    
+   #   #  #  #  #         # #   #     #      
+   #     #      #   #    #  #   ##   ###     
+   #    #      #         #####    #  #  #    
+   #   #     #  #           #  #  #  #  #    
+ ##### ####   ##    #      ###  ##   ###     
+```
+
+
