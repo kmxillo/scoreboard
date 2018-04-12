@@ -1,3 +1,3 @@
 
-../gradlew clean jar
+../gradlew clean build buildZip
 

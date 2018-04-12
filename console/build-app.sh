@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-../gradlew clean jar
+../gradlew clean build buildZip
