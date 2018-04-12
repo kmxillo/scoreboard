@@ -3,6 +3,7 @@ package net.johanneslink.scoreboard.it;
 import java.io.*;
 import java.util.*;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import net.johanneslink.scoreboard.console.Main;
 import org.junit.jupiter.api.*;
 
@@ -30,13 +31,14 @@ class IntegrationTest {
 	void startingConsoleAppDisplaysInitialScore() throws Exception {
 		startConsoleApp();
 		List<String> stdoutLines = stdoutLines();
-		assertEquals(stdoutLines.size(), 1);
-		assertEquals(stdoutLines.get(0), "000:000");
+		assertEquals(1, stdoutLines.size());
+		assertEquals( "000:000", stdoutLines.get(0));
 	}
 
-	// @Test
+	@Test
+	@Disabled
 	void consoleAppInterpretsInputLineByLineAndCanBeQuit() {
-		// Todo: Redirect stdin to accept input from tests
+//		 Todo: Redirect stdin to accept input from tests
 		fail("Not implemented yet");
 	}
 

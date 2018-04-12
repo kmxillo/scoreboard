@@ -1,6 +1,7 @@
 package net.johanneslink.scoreboard.console;
 
 import java.io.*;
+import java.util.*;
 
 import net.johanneslink.scoreboard.core.ScoreboardPresenter;
 

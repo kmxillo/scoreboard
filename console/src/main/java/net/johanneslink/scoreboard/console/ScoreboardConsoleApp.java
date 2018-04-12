@@ -1,5 +1,7 @@
 package net.johanneslink.scoreboard.console;
 
+import java.util.*;
+
 import net.johanneslink.scoreboard.core.*;
 
 public class ScoreboardConsoleApp implements ScoreboardView {

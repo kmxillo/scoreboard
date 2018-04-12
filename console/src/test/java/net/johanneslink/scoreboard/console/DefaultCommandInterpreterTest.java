@@ -1,12 +1,14 @@
 package net.johanneslink.scoreboard.console;
 
-import org.junit.jupiter.api.Test;
+import java.util.*;
+
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DefaultCommandInterpreterTest {
 
-	private final CommandInterpreter interpreter = new DefaultCommandInterpreter();
+	private CommandInterpreter interpreter = new DefaultCommandInterpreter();
 
 	@Test
 	void interpretQuit() {
