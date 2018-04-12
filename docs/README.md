@@ -12,7 +12,11 @@ Java JDK 8+
     
     b) [Linux / Mac](./unix.zip)
 
-3. Extract archive and run script (run-app.bat / run-app.sh) to start the application.
+3. Extract archive and change into the directory
+
+4. Linux/Mac only: Execute "chmod 755 run-app.sh"  
+
+5. Run script (run-app.bat / run-app.sh) to start the application.
 
 
 ### [Architecture](./ARCHITECTURE.md)
