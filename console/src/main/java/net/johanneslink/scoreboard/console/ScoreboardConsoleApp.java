@@ -7,11 +7,11 @@ public class ScoreboardConsoleApp implements ScoreboardView {
 	private Console console;
 	private ScoreboardPresenter presenter;
 
-	public ScoreboardConsoleApp(Console console) {
+	ScoreboardConsoleApp(Console console) {
 		this.console = console;
 	}
 
-	public void run(ScoreboardPresenter presenter, CommandInterpreter interpreter) {
+	void run(ScoreboardPresenter presenter, CommandInterpreter interpreter) {
 		presenter.register(this);
 		this.presenter = presenter;
 		loop(interpreter);

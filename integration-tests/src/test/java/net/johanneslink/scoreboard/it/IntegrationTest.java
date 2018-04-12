@@ -8,7 +8,7 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class IntegrationTest {
+class IntegrationTest {
 
 	private ByteArrayOutputStream stdout;
 	private PrintStream originalStdout;
@@ -41,12 +41,7 @@ public class IntegrationTest {
 	}
 
 	private void startConsoleApp(final String... args) throws InterruptedException {
-		Thread mainThread = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				Main.main(args);
-			}
-		});
+		Thread mainThread = new Thread(() -> Main.main(args));
 		mainThread.start();
 		mainThread.join(2000);
 	}
