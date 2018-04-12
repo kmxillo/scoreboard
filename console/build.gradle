@@ -30,6 +30,7 @@ task zipWindows(type: Zip) {
 	destinationDir(file("../docs/"))
 }
 
-zipUnix.dependsOn(zipWindows)
 
-build.finalizedBy(zipUnix)
+task buildZip() dependsOn(zipWindows, zipUnix) {
+	println "Build zip files.."
+}
