@@ -1,5 +1,7 @@
 package net.johanneslink.scoreboard.console;
 
+import net.johanneslink.scoreboard.core.*;
+
 class Command {
 
 	private Action action;
@@ -10,6 +12,10 @@ class Command {
 		this.action = action;
 		this.strings = strings;
 		this.helpText = helpText;
+	}
+
+	Command(Action action) {
+		this(action, "", "");
 	}
 
 	Action getAction() {
@@ -23,4 +29,8 @@ class Command {
 	String getHelpText() {
 		return helpText;
 	}
+
+	void execute(ScoreboardPresenter presenter, Console console){	}
+//	void execute(ScoreboardPresenter presenter){}
+//	void execute(Console console){}
 }
