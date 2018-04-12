@@ -1,6 +1,7 @@
 package net.johanneslink.scoreboard.console;
 
-import java.util.*;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 import net.johanneslink.scoreboard.core.*;
 
@@ -26,39 +27,12 @@ public class ScoreboardConsoleApp implements ScoreboardView {
 			String line = console.readLine();
 			Action action = interpreter.parse(line);
 			if (action == Action.QUIT) break;
-			handleAction(action, line);
-		}
-	}
-
-	private void handleAction(Action action, String input) {
-		switch (action) {
-			case SELECT_A:
-				presenter.select(Team.A);
-				break;
-			case SELECT_B:
-				presenter.select(Team.B);
-				break;
-			case SCORE_1:
-				presenter.score(Points.One);
-				break;
-			case SCORE_2:
-				presenter.score(Points.Two);
-				break;
-			case SCORE_3:
-				presenter.score(Points.Three);
-				break;
-			case HELP:
-				printHelpString();
-				break;
-			default:
-				console.println("Unknown command '" + input + "'");
-		}
-	}
-
-	private void printHelpString() {
-		console.println("Possible commands:");
-		for (Command command: interpreter.getRegisteredCommands()){
-			console.println(command.getHelpText());
+			if (action == Action.UNKNOWN) console.println("Unknown command '" + line + "'");
+			Optional<Command> first = interpreter.getRegisteredCommands()
+					.stream()
+					.filter(c -> c.getAction() == action)
+					.findFirst();
+			first.ifPresent(command -> command.execute(presenter, console));
 		}
 	}
 
