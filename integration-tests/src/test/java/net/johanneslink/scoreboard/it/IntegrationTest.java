@@ -35,6 +35,10 @@ class IntegrationTest {
 
 	@Test
 	void startingConsoleAppDisplaysInitialScore() throws Exception {
+		String inputText = String.format("Q%n");
+		stdin = new ByteArrayInputStream(inputText.getBytes());
+		System.setIn(stdin);
+
 		startConsoleApp();
 		List<String> stdoutLines = stdoutLines();
 		assertEquals(1, stdoutLines.size());
@@ -43,10 +47,7 @@ class IntegrationTest {
 
 	@Test
 	void consoleAppInterpretsInputLineByLineAndCanBeQuit() throws InterruptedException, IOException {
-		String inputText = String.format("A%n" + "1%n" + "B%n" + "1%n" + "2%n" + "3%n" + "4%n" + "Q%n");
-		stdin = new ByteArrayInputStream(inputText.getBytes());
-		System.setIn(stdin);
-
+		setConsoleInput("A", "1", "B", "1", "2", "3", "4", "Q");
 		startConsoleApp();
 
 		List<String> stdoutLines = stdoutLines();
@@ -60,6 +61,21 @@ class IntegrationTest {
 				() -> assertEquals("001:006", stdoutLines.get(6)), //
 				() -> assertEquals("Unknown command '4'", stdoutLines.get(7)) //
 		);
+	}
+
+	private void setConsoleInput(String... commands) {
+
+		StringBuilder stringBuilder = new StringBuilder();
+		for (String command : commands) {
+			stringBuilder.append(command);
+			stringBuilder.append(System.getProperty("line.separator"));
+		}
+
+		stringBuilder.append("Q");
+		stringBuilder.append(System.getProperty("line.separator"));
+
+		stdin = new ByteArrayInputStream(stringBuilder.toString().getBytes());
+		System.setIn(stdin);
 	}
 
 	private void startConsoleApp(final String... args) throws InterruptedException {
