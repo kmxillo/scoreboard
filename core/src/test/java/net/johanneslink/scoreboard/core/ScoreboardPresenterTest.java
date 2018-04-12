@@ -24,18 +24,18 @@ class ScoreboardPresenterTest implements ScoreboardView {
 	}
 
 	@Test
-	void initiallyNoTeamIsSelected() throws Exception {
+	void initiallyNoTeamIsSelected() {
 		assertEquals(lastSelectedTeam, Team.NONE);
 	}
 
 	@Test
-	void selectingTeamADisplaysSelection() throws Exception {
+	void selectingTeamADisplaysSelection() {
 		presenter.select(Team.A);
 		assertEquals(lastSelectedTeam, Team.A);
 	}
 
 	@Test
-	void selectingTeamBDisplaysSelection() throws Exception {
+	void selectingTeamBDisplaysSelection() {
 		presenter.select(Team.B);
 		assertEquals(lastSelectedTeam, Team.B);
 	}
@@ -48,10 +48,14 @@ class ScoreboardPresenterTest implements ScoreboardView {
 	}
 
 	@Test
-	void afterScoringNoTeamIsSelected() {
+	void afterScoringSameTeamStaysSelected() {
 		presenter.select(Team.A);
 		presenter.score(Points.One);
-		assertEquals(lastSelectedTeam, Team.NONE);
+		assertEquals(Team.A, lastSelectedTeam);
+
+		presenter.select(Team.B);
+		presenter.score(Points.Two);
+		assertEquals(Team.B, lastSelectedTeam);
 	}
 
 	@Test

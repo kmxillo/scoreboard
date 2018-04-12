@@ -26,7 +26,6 @@ public class ScoreboardPresenter {
 			currentScore = currentScore.incTeamBBy(points);
 			displayCurrentScore();
 		}
-		select(Team.NONE);
 	}
 
 	public void setScore(Score newScore) {

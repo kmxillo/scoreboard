@@ -32,7 +32,7 @@ class ScoreboardConsoleAppTest {
 	}
 
 	@Test
-	void actionQuitStopsAppLoop() throws Exception {
+	void actionQuitStopsAppLoop() {
 		when(console.readLine()).thenReturn("line1", "line2");
 		when(interpreter.parse("line1")).thenReturn(Action.QUIT);
 
@@ -113,25 +113,25 @@ class ScoreboardConsoleAppTest {
 	}
 
 	@Test
-	void displayScoreIsPrintedOnConsole() throws Exception {
+	void displayScoreIsPrintedOnConsole() {
 		app.displayScore(Score.ab(42, 107));
 		verify(console).println("042:107");
 	}
 
 	@Test
-	void displaySelectedTeamAIsPrintedOnConsole() throws Exception {
+	void displaySelectedTeamAIsPrintedOnConsole() {
 		app.displaySelectedTeam(Team.A);
 		verify(console).println("Team A selected");
 	}
 
 	@Test
-	void displaySelectedTeamBIsPrintedOnConsole() throws Exception {
+	void displaySelectedTeamBIsPrintedOnConsole() {
 		app.displaySelectedTeam(Team.B);
 		verify(console).println("Team B selected");
 	}
 
 	@Test
-	void displaySelectedTeamNoneIsNotPrintedOnConsole() throws Exception {
+	void displaySelectedTeamNoneIsNotPrintedOnConsole() {
 		app.displaySelectedTeam(Team.NONE);
 		verify(console, never()).println(anyString());
 	}
