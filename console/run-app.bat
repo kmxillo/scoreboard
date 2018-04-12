@@ -8,4 +8,4 @@ IF EXIST "%CWD%%FILENAME%" (
   SET JAR_FILE=%LIBS_PATH%%FILENAME%
 )
 
-start java -jar %JAR_FILE%
+start java -jar "%JAR_FILE%"
