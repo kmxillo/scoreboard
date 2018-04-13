@@ -1,0 +1,18 @@
+jar {
+    baseName = 'scoreboard-gui'
+    version = ''
+
+    manifest {
+        attributes "Main-Class": "net.johanneslink.scoreboard.gui.Main"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+dependencies {
+    compile(project(":core"))
+    compile("net.sf.jopt-simple:jopt-simple:5.0.4")
+}
+
