@@ -32,11 +32,11 @@ public class Score {
         return a() + ":" + b();
     }
 
-    private String a() {
+    public String a() {
         return formatScore(teamA);
     }
 
-    private String b() {
+    public String b() {
         return formatScore(teamB);
     }
 

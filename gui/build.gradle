@@ -14,5 +14,7 @@ jar {
 dependencies {
     compile(project(":core"))
     compile("net.sf.jopt-simple:jopt-simple:5.0.4")
+
+    testCompile("org.netbeans:jemmy:2.2.7.5")
 }
 
