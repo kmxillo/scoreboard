@@ -48,6 +48,13 @@ class ScoreboardPresenterTest implements ScoreboardView {
 	}
 
 	@Test
+	void plusForTeamA() {
+		presenter.select(Team.A);
+		presenter.plus();
+		assertEquals(lastDisplayedScore, Score.ab(1, 0));
+	}
+
+	@Test
 	void afterScoringSameTeamStaysSelected() {
 		presenter.select(Team.A);
 		presenter.score(Points.One);
@@ -101,11 +108,12 @@ class ScoreboardPresenterTest implements ScoreboardView {
 	}
 
 	@Test
-	void ignoreScoringAttemptWhenNoTeamIsSelected() {
+	void ignoreScoreChangeAttemptWhenNoTeamIsSelected() {
 		presenter.setScore(Score.ab(22, 33));
 		presenter.score(Points.One);
 		presenter.score(Points.Two);
 		presenter.score(Points.Three);
+		presenter.plus();
 		assertEquals(lastDisplayedScore, Score.ab(22, 33));
 
 		// Check that presenter's internal score has not been changed

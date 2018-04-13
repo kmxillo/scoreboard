@@ -49,6 +49,11 @@ class DefaultCommandInterpreterTest {
 	}
 
 	@Test
+	void interpretPlus1() {
+		assertEquals(interpreter.parse("+"), Action.PLUS);
+	}
+
+	@Test
 	void interpretHelp() {
 		assertEquals(Action.HELP, interpreter.parse("?"));
 		assertEquals(Action.HELP, interpreter.parse("h"));

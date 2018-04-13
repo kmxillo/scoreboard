@@ -100,6 +100,13 @@ class ScoreboardConsoleAppTest {
 	}
 
 	@Test
+	void actionPlusCallsScorePlusOnPresenter() {
+		when(interpreter.parse(anyString())).thenReturn(Action.PLUS, Action.QUIT);
+		app.run(presenter, interpreter);
+		verify(presenter).plus();
+	}
+
+	@Test
 	void actionHelpDisplaysListOfCommands() {
 		when(interpreter.parse(anyString())).thenReturn(Action.HELP, Action.QUIT);
 		app.run(presenter, interpreter);
@@ -109,6 +116,7 @@ class ScoreboardConsoleAppTest {
 		verify(console).println(startsWith("Score [1] -"));
 		verify(console).println(startsWith("Score [2] -"));
 		verify(console).println(startsWith("Score [3] -"));
+		verify(console).println(startsWith("[+] -"));
 		verify(console).println(startsWith("[Q]uit -"));
 		verify(console).println(startsWith("[?|H]elp -"));
 	}

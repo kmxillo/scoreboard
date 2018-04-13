@@ -41,4 +41,7 @@ public class ScoreboardPresenter {
 		view.displaySelectedTeam(currentSelectedTeam);
 	}
 
+	public void plus() {
+		score(Points.One);
+	}
 }

@@ -41,6 +41,14 @@ public class DefaultCommandInterpreter implements CommandInterpreter {
 				presenter.score(Points.Three);
 			}
 		});
+		registeredCommands.add(new Command(Action.PLUS, "[+] - Increment Score for Correction", "+"){
+			@Override
+			void execute(ScoreboardPresenter presenter, Console console) {
+				presenter.plus();
+			}
+		});
+
+
 		registeredCommands.add(new Command(Action.QUIT,"[Q]uit - Terminate the Scoreboard app",  "quit", "q"));
 
 		registeredCommands.add(new Command(Action.HELP, "[?|H]elp - Print this message", "h", "help", "?"){
