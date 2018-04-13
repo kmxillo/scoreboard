@@ -39,6 +39,9 @@ task wrapper(type: Wrapper) {
 	gradleVersion = '4.6'
 }
 
+task cleanZips(type: Delete) {
+	delete "docs/windows.zip", "docs/unix.zip"
+}
 
 task zipUnix(type: Zip) {
 	from fileTree(".").include("**/run-*.sh").files, fileTree(".").include("**/scoreboard-*.jar").files
@@ -55,7 +58,7 @@ task zipWindows(type: Zip) {
 }
 
 
-task buildZip() dependsOn(zipWindows, zipUnix) {
+task buildZip() dependsOn(cleanZips, zipWindows, zipUnix) {
 	println "Build zip files.."
 }
 
