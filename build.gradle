@@ -38,3 +38,24 @@ task wrapper(type: Wrapper) {
 	description = 'Generates gradlew and gradlew.bat scripts'
 	gradleVersion = '4.6'
 }
+
+
+task zipUnix(type: Zip) {
+	from fileTree(".").include("**/run-*.sh").files, fileTree(".").include("**/scoreboard-*.jar").files
+	include "*"
+	archiveName "unix.zip"
+	destinationDir(file("./docs/"))
+}
+
+task zipWindows(type: Zip) {
+	from fileTree(".").include("**/run-*.bat").files, fileTree(".").include("**/scoreboard-*.jar").files
+	include "*"
+	archiveName "windows.zip"
+	destinationDir(file("./docs/"))
+}
+
+
+task buildZip() dependsOn(zipWindows, zipUnix) {
+	println "Build zip files.."
+}
+

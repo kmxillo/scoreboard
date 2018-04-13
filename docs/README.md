@@ -14,33 +14,13 @@ Java JDK 8+
 
 3. Extract archive and change into the directory
 
-4. Linux/Mac only: Execute "chmod 755 run-app.sh"  
+4. Linux/Mac only: Execute "chmod 755 run-*.sh"  
 
-5. Run script (run-app.bat / run-app.sh) to start the application.
+5. Decide whether to run GUI or console application
 
-
-### Build status
-![Build status](https://travis-ci.org/jlink-workshop/scoreboard.svg?branch=master)
+6 Run script (run-console.bat / run-gui.bat) / (run-console.sh / run-gui.sh) to start the application.
 
 
 ### [Architecture](./ARCHITECTURE.md)
 
 See details by clicking headline 
-
-### Ticket evals
-
-#### #15 ASCII-Art for score presentation (console-only)
-
-Current eval result was rejected by PO due to bad readability.
-
-Eval result:
-```
-  ##    ##    ##           ##   ###   ###    
-   #   #  #  #  #         # #   #     #      
-   #     #      #   #    #  #   ##   ###     
-   #    #      #         #####    #  #  #    
-   #   #     #  #           #  #  #  #  #    
- ##### ####   ##    #      ###  ##   ###     
-```
-
-
