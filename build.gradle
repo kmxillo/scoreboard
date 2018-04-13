@@ -31,7 +31,6 @@ subprojects { subproj ->
 		testCompile("org.mockito:mockito-core:2.18.0")
 		testCompile("org.mockito:mockito-junit-jupiter:2.18.0")
 	}
-
 }
 
 task wrapper(type: Wrapper) {
