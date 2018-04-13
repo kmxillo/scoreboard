@@ -41,14 +41,14 @@ public class DefaultCommandInterpreter implements CommandInterpreter {
 				presenter.score(Points.Three);
 			}
 		});
-		registeredCommands.add(new Command(Action.PLUS, "[+] - Correct Score Plus 1", "+"){
+		registeredCommands.add(new Command(Action.PLUS, "[+] - Correct Score by +1", "+"){
 			@Override
 			void execute(ScoreboardPresenter presenter, Console console) {
 				presenter.plus();
 			}
 		});
 
-		registeredCommands.add(new Command(Action.MINUS, "[-] - Correct Score Minus 1", "-"){
+		registeredCommands.add(new Command(Action.MINUS, "[-] - Correct Score by -1", "-"){
 			@Override
 			void execute(ScoreboardPresenter presenter, Console console) {
 				presenter.minus();
