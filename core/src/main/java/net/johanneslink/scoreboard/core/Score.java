@@ -46,19 +46,10 @@ public class Score {
 
     Score changeTeamBy(Team team, Points points) {
         if (team == Team.A) {
-            return changeTeamABy(points);
+            return ab(points.useToChange(teamA), teamB);
         } else if (team == Team.B) {
-            return changeTeamBBy(points);
+            return ab(teamA, points.useToChange(teamB));
         }
-
         return new Score(teamA, teamB);
-    }
-
-    Score changeTeamABy(Points points) {
-        return ab(points.useToChange(teamA), teamB);
-    }
-
-    Score changeTeamBBy(Points points) {
-        return ab(teamA, points.useToChange(teamB));
     }
 }

@@ -8,16 +8,12 @@ class ScoreTest {
 
 	@Test
 	void negativeScoreForTeamAIsNotAllowed() {
-		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			Score.ab(-1, 1);
-		});
+		Assertions.assertThrows(IllegalArgumentException.class, () -> Score.ab(-1, 1));
 	}
 
 	@Test
 	void negativeScoreForTeamBIsNotAllowed() {
-		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			Score.ab(1, -1);
-		});
+		Assertions.assertThrows(IllegalArgumentException.class, () -> Score.ab(1, -1));
 	}
 
 	@Test
@@ -30,16 +26,16 @@ class ScoreTest {
 	@Test
 	void incrementScoreOfTeamA() {
 		Score score = Score.ab(12, 33);
-		assertEquals(score.changeTeamABy(Points.One), Score.ab(13, 33));
-		assertEquals(score.changeTeamABy(Points.Two), Score.ab(14, 33));
-		assertEquals(score.changeTeamABy(Points.Three), Score.ab(15, 33));
+		assertEquals(score.changeTeamBy(Team.A, Points.One), Score.ab(13, 33));
+		assertEquals(score.changeTeamBy(Team.A, Points.Two), Score.ab(14, 33));
+		assertEquals(score.changeTeamBy(Team.A, Points.Three), Score.ab(15, 33));
 	}
 
 	@Test
 	void incrementScoreOfTeamB() {
 		Score score = Score.ab(44, 99);
-		assertEquals(score.changeTeamBBy(Points.One), Score.ab(44, 100));
-		assertEquals(score.changeTeamBBy(Points.Two), Score.ab(44, 101));
-		assertEquals(score.changeTeamBBy(Points.Three), Score.ab(44, 102));
+		assertEquals(score.changeTeamBy(Team.B, Points.One), Score.ab(44, 100));
+		assertEquals(score.changeTeamBy(Team.B, Points.Two), Score.ab(44, 101));
+		assertEquals(score.changeTeamBy(Team.B, Points.Three), Score.ab(44, 102));
 	}
 }
