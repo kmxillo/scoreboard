@@ -4,8 +4,8 @@ subprojects { subproj ->
 		mavenCentral()
 	}
 
-	ext.junitPlatformVersion = '1.1.0'
-	ext.junitJupiterVersion = '5.1.0'
+	ext.junitPlatformVersion = '1.1.1'
+	ext.junitJupiterVersion = '5.1.1'
 
 	apply plugin: 'java'
 
