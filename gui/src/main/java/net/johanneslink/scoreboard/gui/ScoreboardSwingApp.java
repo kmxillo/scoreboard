@@ -1,9 +1,6 @@
 package net.johanneslink.scoreboard.gui;
 
-import net.johanneslink.scoreboard.core.Score;
-import net.johanneslink.scoreboard.core.ScoreboardPresenter;
-import net.johanneslink.scoreboard.core.ScoreboardView;
-import net.johanneslink.scoreboard.core.Team;
+import net.johanneslink.scoreboard.core.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,15 +42,15 @@ public class ScoreboardSwingApp extends JFrame implements ScoreboardView {
         JPanel scoringButtonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         score1Button = new JButton("1");
         score1Button.addActionListener(e -> {
-            //scoreboard.score(Points.One);
+            scoreboard.score(Points.One);
         });
         score2Button = new JButton("2");
         score2Button.addActionListener(e -> {
-            //scoreboard.score(Points.Two);
+            scoreboard.score(Points.Two);
         });
         score3Button = new JButton("3");
         score3Button.addActionListener(e -> {
-            //scoreboard.score(Points.Three);
+            scoreboard.score(Points.Three);
         });
         scoringButtonsPanel.add(score1Button);
         scoringButtonsPanel.add(score2Button);
@@ -65,12 +62,11 @@ public class ScoreboardSwingApp extends JFrame implements ScoreboardView {
         JPanel teamButtonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         teamAButton = new JButton("Team A");
         teamAButton.addActionListener(e -> {
-            //scoreboard.select(Team.A);
+            scoreboard.select(Team.A);
         });
         teamBButton = new JButton("Team B");
         teamBButton.addActionListener(e -> {
-
-            //scoreboard.select(Team.B);
+            scoreboard.select(Team.B);
         });
         teamButtonsPanel.add(teamAButton);
         teamButtonsPanel.add(teamBButton);

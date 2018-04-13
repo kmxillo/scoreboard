@@ -1,5 +1,6 @@
 package net.johanneslink.scoreboard.gui;
 
+import net.johanneslink.scoreboard.core.Score;
 import net.johanneslink.scoreboard.core.ScoreboardPresenter;
 import org.junit.jupiter.api.*;
 import org.netbeans.jemmy.operators.JButtonOperator;
@@ -30,7 +31,6 @@ class GuiTest {
         Assertions.assertEquals("Basketball Console", mainFrame.getTitle());
     }
 
-    @Disabled
     @Test
     void teamAScores1() {
         click(getTeamAButton());
@@ -38,7 +38,6 @@ class GuiTest {
         assertScore(1, 0);
     }
 
-    @Disabled
     @Test
     void teamBScores3() {
         click(getTeamBButton());
@@ -46,7 +45,6 @@ class GuiTest {
         assertScore(0, 3);
     }
 
-    @Disabled
     @Test
     void bothTeamsScoreTwice() {
         click(getTeamBButton());
@@ -60,18 +58,15 @@ class GuiTest {
         assertScore(3, 6);
     }
 
-    @Disabled
     @Test
     void pressingScoreButtonsWithoutTeamButtonsDoesNotChangeScore() {
-        click(getTeamAButton());
         click(getScore1Button());
         click(getScore1Button());
         click(getScore2Button());
         click(getScore3Button());
-        assertScore(1, 0);
+        assertScore(0, 0);
     }
 
-    @Disabled
     @Test
     void lastPressedTeamButtonCounts() {
         click(getTeamAButton());
@@ -81,8 +76,10 @@ class GuiTest {
     }
 
     private void assertScore(int scoreA, int scoreB) {
-        assertEquals(getTeamAScore(), Integer.toString(scoreA), "score team A");
-        assertEquals(getTeamBScore(), Integer.toString(scoreB), "score team B");
+        Assertions.assertAll(
+            () -> assertEquals(scoreA, Integer.parseInt(getTeamAScore()), "score team A"),
+            () -> assertEquals(scoreB, Integer.parseInt(getTeamBScore()), "score team B")
+        );
     }
 
     private void click(JButtonOperator button) {
@@ -90,11 +87,11 @@ class GuiTest {
     }
 
     private String getTeamAScore() {
-        return new JLabelOperator(mainFrame, 1).getText();
+        return new JLabelOperator(mainFrame, 0).getText();
     }
 
     private String getTeamBScore() {
-        return new JLabelOperator(mainFrame, 3).getText();
+        return new JLabelOperator(mainFrame, 2).getText();
     }
 
     private JButtonOperator getScore1Button() {
