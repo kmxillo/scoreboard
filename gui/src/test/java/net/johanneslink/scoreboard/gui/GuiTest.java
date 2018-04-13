@@ -59,6 +59,20 @@ class GuiTest {
     }
 
     @Test
+    void disableTeamButton() {
+        Assertions.assertTrue(getTeamAButton().isEnabled());
+        Assertions.assertTrue(getTeamBButton().isEnabled());
+
+        click(getTeamAButton());
+        Assertions.assertFalse(getTeamAButton().isEnabled());
+        Assertions.assertTrue(getTeamBButton().isEnabled());
+
+        click(getTeamBButton());
+        Assertions.assertTrue(getTeamAButton().isEnabled());
+        Assertions.assertFalse(getTeamBButton().isEnabled());
+    }
+
+    @Test
     void pressingScoreButtonsWithoutTeamButtonsDoesNotChangeScore() {
         click(getScore1Button());
         click(getScore1Button());

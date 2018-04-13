@@ -101,6 +101,7 @@ public class ScoreboardSwingApp extends JFrame implements ScoreboardView {
 
     @Override
     public void displaySelectedTeam(Team team) {
-        //TODO
+        teamAButton.setEnabled(team != Team.A);
+        teamBButton.setEnabled(team != Team.B);
     }
 }

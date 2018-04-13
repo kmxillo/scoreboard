@@ -11,4 +11,4 @@ else
   JAR_FILE=$LIBS_PATH/$FILENAME
 fi
 
-javaw -jar $JAR_FILE
+java -jar $JAR_FILE
