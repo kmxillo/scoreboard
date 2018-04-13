@@ -35,7 +35,7 @@ class IntegrationTest {
 
 	@Test
 	void startingConsoleAppDisplaysInitialScore() throws Exception {
-		// TODO: Use setConsoleInput()
+		// TODO: Duplication. Use setConsoleInput()
 		String inputText = String.format("Q%n");
 		stdin = new ByteArrayInputStream(inputText.getBytes());
 		System.setIn(stdin);
@@ -72,6 +72,7 @@ class IntegrationTest {
 			stringBuilder.append(System.getProperty("line.separator"));
 		}
 
+		// TODO: Seems to be redundant since test adds a Q itself
 		stringBuilder.append("Q");
 		stringBuilder.append(System.getProperty("line.separator"));
 

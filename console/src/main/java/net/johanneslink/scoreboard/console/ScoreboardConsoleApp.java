@@ -1,7 +1,6 @@
 package net.johanneslink.scoreboard.console;
 
 import java.util.Optional;
-import java.util.stream.Stream;
 
 import net.johanneslink.scoreboard.core.*;
 
@@ -23,6 +22,7 @@ public class ScoreboardConsoleApp implements ScoreboardView {
 	}
 
 	private void loop(CommandInterpreter interpreter) {
+		// TODO: 11 lines in a single method. Are you serious?
 		while (true) {
 			String line = console.readLine();
 			Action action = interpreter.parse(line);

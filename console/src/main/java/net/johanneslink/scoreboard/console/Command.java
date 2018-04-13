@@ -14,6 +14,7 @@ class Command {
 		this.helpText = helpText;
 	}
 
+	// TODO: Not used
 	Command(Action action) {
 		this(action, "", "");
 	}
@@ -30,7 +31,10 @@ class Command {
 		return helpText;
 	}
 
+	// TODO: Do we need that? Could it be abstract?
 	void execute(ScoreboardPresenter presenter, Console console){	}
+
+	// TODO: Commented-out code, what's that?
 //	void execute(ScoreboardPresenter presenter){}
 //	void execute(Console console){}
 }
