@@ -30,16 +30,16 @@ class ScoreTest {
 	@Test
 	void incrementScoreOfTeamA() {
 		Score score = Score.ab(12, 33);
-		assertEquals(score.incTeamABy(Points.One), Score.ab(13, 33));
-		assertEquals(score.incTeamABy(Points.Two), Score.ab(14, 33));
-		assertEquals(score.incTeamABy(Points.Three), Score.ab(15, 33));
+		assertEquals(score.changeTeamABy(Points.One), Score.ab(13, 33));
+		assertEquals(score.changeTeamABy(Points.Two), Score.ab(14, 33));
+		assertEquals(score.changeTeamABy(Points.Three), Score.ab(15, 33));
 	}
 
 	@Test
 	void incrementScoreOfTeamB() {
 		Score score = Score.ab(44, 99);
-		assertEquals(score.incTeamBBy(Points.One), Score.ab(44, 100));
-		assertEquals(score.incTeamBBy(Points.Two), Score.ab(44, 101));
-		assertEquals(score.incTeamBBy(Points.Three), Score.ab(44, 102));
+		assertEquals(score.changeTeamBBy(Points.One), Score.ab(44, 100));
+		assertEquals(score.changeTeamBBy(Points.Two), Score.ab(44, 101));
+		assertEquals(score.changeTeamBBy(Points.Three), Score.ab(44, 102));
 	}
 }

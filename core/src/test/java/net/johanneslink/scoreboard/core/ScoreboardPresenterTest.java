@@ -55,6 +55,22 @@ class ScoreboardPresenterTest implements ScoreboardView {
 	}
 
 	@Test
+	void minusForTeamA() {
+		presenter.select(Team.A);
+		presenter.setScore(Score.ab(10,9));
+		presenter.minus();
+		assertEquals(lastDisplayedScore, Score.ab(9, 9));
+	}
+
+	@Test
+	void scoreNeverNegativeForTeamA() {
+		presenter.select(Team.A);
+		presenter.setScore(Score.ab(0,0));
+		presenter.minus();
+		assertEquals(lastDisplayedScore, Score.ab(0, 0));
+	}
+
+	@Test
 	void afterScoringSameTeamStaysSelected() {
 		presenter.select(Team.A);
 		presenter.score(Points.One);

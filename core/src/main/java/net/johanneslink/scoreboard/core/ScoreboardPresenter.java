@@ -18,14 +18,9 @@ public class ScoreboardPresenter {
 	}
 
 	public void score(Points points) {
-		if (currentSelectedTeam == Team.A) {
-			currentScore = currentScore.incTeamABy(points);
-			displayCurrentScore();
-		}
-		if (currentSelectedTeam == Team.B) {
-			currentScore = currentScore.incTeamBBy(points);
-			displayCurrentScore();
-		}
+		currentScore = currentScore.changeTeamBy(currentSelectedTeam, points);
+
+		displayCurrentScore();
 	}
 
 	public void setScore(Score newScore) {
@@ -43,5 +38,9 @@ public class ScoreboardPresenter {
 
 	public void plus() {
 		score(Points.One);
+	}
+
+	public void minus() {
+		score(Points.MinusOne);
 	}
 }
